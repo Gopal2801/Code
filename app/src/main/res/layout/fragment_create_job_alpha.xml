@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dummy">
+
+    <include
+        android:id="@+id/header_lay"
+        layout="@layout/inflate_header_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></include>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header_lay"
+        android:background="@color/black_alph"></View>
+
+    <ImageView
+        android:id="@+id/companyProfileIM"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/header_lay"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_profile_im" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/jobcreateBTN"
+        android:layout_below="@+id/companyProfileIM">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header_lay">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#FFF"
+                        android:theme="@style/MyStyle">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/companyNameEDT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/companyName"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords"
+                            android:singleLine="true"
+                            android:textColor="#FFFFFF"
+                            android:textColorHint="#FFF"
+                            android:textSize="@dimen/text_size" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#FFF"
+                        android:theme="@style/MyStyleEd">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/jobnameEDT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/jobname"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords"
+                            android:singleLine="true"
+                            android:textColor="#FFFFFF"
+                            android:textColorHint="#FFF"
+                            android:textSize="@dimen/text_size" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#FFF"
+                        android:theme="@style/MyStyle">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/jobdesignationEDT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/jobdesignation"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords"
+                            android:singleLine="true"
+                            android:textColor="#FFFFFF"
+                            android:textColorHint="#FFF"
+                            android:textSize="@dimen/text_size" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#FFF"
+
+                        android:theme="@style/MyStyleEd">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/jobdescriptionEDT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/jobdescription"
+                            android:inputType="textCapWords"
+
+                            android:textColor="#FFFFFF"
+                            android:textColorHint="#FFF"
+                            android:textSize="@dimen/text_size" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#FFF"
+
+                        android:theme="@style/MyStyleEd">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/jobbudgetEDT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/jobdbud"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:singleLine="true"
+                            android:textColor="#FFFFFF"
+                            android:textColorHint="#FFF"
+                            android:textSize="@dimen/text_size" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:textColorHint="#FFF"
+                        android:theme="@style/MyStyleEd">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/jobreqEDT"
+                            android:layout_width="match_parent"
+                            android:layout_height="75dp"
+                            android:hint="@string/jobreq"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords"
+                            android:textColor="#FFFFFF"
+                            android:textColorHint="#FFF"
+                            android:textSize="@dimen/text_size" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#FFF"
+
+                        android:theme="@style/MyStyleEd">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/noofvacancyEDT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/noofvacancy"
+                            android:imeOptions="actionDone"
+                            android:inputType="number"
+
+                            android:textColor="#FFFFFF"
+                            android:textColorHint="#FFF"
+                            android:textSize="@dimen/text_size" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#FFF"
+
+                        android:theme="@style/MyStyleEd">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/deadLineEDT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/deadline"
+
+                            android:textColor="#FFFFFF"
+                            android:textColorHint="#FFF"
+                            android:textSize="@dimen/text_size" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/job_type"
+                        android:textColor="#FFF"
+                        android:textSize="@dimen/text_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+
+                            <RadioButton
+                                android:id="@+id/full_time_RB"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Full Time"
+                                android:textColor="#FFF" />
+
+                            <RadioButton
+                                android:id="@+id/contract_time_RB"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Contract"
+
+                                android:textColor="#FFF" />
+
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/jobcreateBTN"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selectore_sigup"
+        android:text="@string/create"
+        android:textAllCaps="false"
+        android:textColor="#FFF"
+        android:textSize="20sp" />
+</RelativeLayout>

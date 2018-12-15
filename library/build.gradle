@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '27.0.3'
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 25
+    }
+}
+
+dependencies {
+    compile "com.android.support:appcompat-v7:26.0.0"
+}
+
+publish {
+    artifactId = 'sliding-root-nav'
+    userOrg = "yarolegovich"
+    groupId = 'com.yarolegovich'
+    uploadName = 'SlidingRootNav'
+    description = 'DrawerLayout-like ViewGroup, where a "drawer" is hidden under the content view, which can be shifted to make the drawer visible.'
+    publishVersion = '1.1.0'
+    licences = ['Apache-2.0']
+
+}

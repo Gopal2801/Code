@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#25d4d4d4"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/toggle_instant_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Toggle instantly" />
+
+        <Button
+            android:id="@+id/toggle_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Toggle with animation" />
+
+    </LinearLayout>
+
+    <com.ramotion.foldingcell.FoldingCell
+        android:id="@+id/folding_cell"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:id="@+id/cell_content_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include layout="@layout/inflate_profile_second_part" />
+
+            </ScrollView>
+            <!-- <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="250dp"
+                 android:background="@android:color/holo_green_dark"
+                 android:gravity="center"
+                 android:text="Content view" />
+ -->
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/cell_title_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/inflate_profile_first_part" />
+
+
+        </FrameLayout>
+
+    </com.ramotion.foldingcell.FoldingCell>
+
+
+</LinearLayout>

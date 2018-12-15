@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/header_lay"
+        layout="@layout/inflate_header_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></include>
+
+    <TextView
+        android:id="@+id/label_TXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header_lay"
+        android:padding="10dp"
+        android:text="Dont leave empty text if you are not having any problem mention NA"
+        android:textColor="@color/blue"
+        android:textSize="16sp"
+        android:textStyle="normal" />
+
+    <RelativeLayout
+        android:id="@+id/header1_lay"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/colorPrimary"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/editbackim"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_back"
+            android:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Edit Profile"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/profileMergeSaveBTN"
+        android:layout_below="@+id/label_TXT"
+        android:background="@color/white">
+
+
+        <ScrollView
+            android:id="@+id/scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/MyStyleEd">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/eye_power_EDT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/eye_power"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/MyStyleEd">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/blood_grouo_EDT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/blood_group"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/MyStyleEd">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/weight_EDT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/weight"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/MyStyleEd">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/height_EDT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/height"
+                        android:imeOptions="actionNext"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/MyStyleEd">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/eye_color_EDT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/eye_color"
+                        android:imeOptions="actionNext"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/MyStyleEd">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/nailsym_EDT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/nail_symptom"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/MyStyleEd">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/blood_pressure_EDT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/bloodPressure"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/MyStyleEd"
+                    android:visibility="gone">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/sugar_EDT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/sugar"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size"
+                        android:visibility="gone" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/MyStyleEd"
+                    android:visibility="gone">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/cancer_EDT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/cancer"
+                        android:maxLines="1"
+
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size"
+                        android:visibility="gone" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/MyStyleEd">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/hearing_EDT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hearing"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/MyStyleEd"
+                    android:visibility="gone">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/thyroid_EDT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/thyroid"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size"
+                        android:visibility="gone" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Cancer"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+
+                        <RadioButton
+                            android:id="@+id/cancer_yes_RB"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Yes"
+                            android:textColor="@color/black" />
+
+                        <RadioButton
+                            android:id="@+id/cancer_no_RB"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="No"
+                            android:textColor="@color/black" />
+
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Sugar"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+
+                        <RadioButton
+                            android:id="@+id/sugar_yes_RB"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Yes"
+                            android:textColor="@color/black" />
+
+                        <RadioButton
+                            android:id="@+id/sugar_no_RB"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="No"
+                            android:textColor="@color/black" />
+
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Thyroid"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+
+                        <RadioButton
+                            android:id="@+id/thyroid_yes_RB"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Yes"
+                            android:textColor="@color/black" />
+
+                        <RadioButton
+                            android:id="@+id/thyroid_no_RB"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="No"
+                            android:textColor="@color/black" />
+
+
+                    </RadioGroup>
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <com.unstoppable.submitbuttonview.SubmitButton
+            android:id="@+id/save_btn"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp"
+            android:visibility="gone"
+            app:buttonColor="@color/colorAccentTrans"
+            app:buttonText="@string/signup"
+            app:buttonTextSize="20sp"
+            app:failedColor="@color/red"
+            app:progressStyle="progress"
+            app:succeedColor="@color/blue" />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/profileMergeSaveBTN"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selectore_sigup"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textColor="#FFF"
+        android:textSize="20sp" />
+</RelativeLayout>

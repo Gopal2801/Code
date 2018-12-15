@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.ramotion.foldingcell.FoldingCell xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:folding-cell="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/folding_cell"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    folding-cell:additionalFlipsCount="5"
+    folding-cell:animationDuration="1300"
+    folding-cell:cameraHeight="30">
+
+    <!-- CONTENT (UNFOLDED) LAYOUT (MUST BE AT LEAST 2x times BIGGER than content layout bellow)-->
+    <include layout="@layout/inflate_profile_second_part" />
+
+    <!-- TITLE (FOLDED) LAYOUT (MUST BE AT LEAST 2x times SMALLER than content layout above) -->
+    <include layout="@layout/inflate_profile_first_part" />
+
+</com.ramotion.foldingcell.FoldingCell>

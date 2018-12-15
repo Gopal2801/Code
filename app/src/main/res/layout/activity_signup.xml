@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg">
+
+    <RelativeLayout
+        android:id="@+id/header_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            layout="@layout/inflate_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></include>
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/signup_btn"
+        android:layout_below="@+id/header_lay">
+
+        <LinearLayout
+            android:id="@+id/mainlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/nameEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name"
+                android:imeOptions="actionNext"
+                app:met_baseColor="@android:color/white"
+                app:met_floatingLabel="normal" />
+
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/emailEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:imeOptions="actionNext"
+
+                app:met_baseColor="@android:color/white"
+                app:met_floatingLabel="normal" />
+
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/pwdEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                app:met_baseColor="@android:color/white"
+                app:met_floatingLabel="normal" />
+
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/mobileEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mobile_number"
+                app:met_baseColor="@android:color/white"
+                app:met_floatingLabel="normal" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/dobEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/dob"
+                app:met_baseColor="@android:color/white"
+                app:met_floatingLabel="normal" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/qualificationEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@android:drawable/arrow_down_float"
+                android:hint="@string/qualification"
+                app:met_baseColor="@android:color/white"
+                app:met_floatingLabel="normal" />
+
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/skillEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/skills"
+                app:met_baseColor="@android:color/white"
+                app:met_floatingLabel="normal" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/experienceEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@android:drawable/arrow_down_float"
+                android:hint="@string/experience"
+                app:met_baseColor="@android:color/white"
+                app:met_floatingLabel="normal" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/portfolioEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/portfolio"
+                app:met_baseColor="@android:color/white"
+                app:met_floatingLabel="normal" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/addressEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/address"
+                app:met_baseColor="@android:color/white"
+                app:met_floatingLabel="normal" />
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/signup_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true">
+
+        <com.unstoppable.submitbuttonview.SubmitButton
+            android:id="@+id/singup_btn"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="8dp"
+            app:buttonText="@string/signup"
+            app:buttonTextSize="20sp" />
+
+        <com.unstoppable.submitbuttonview.SubmitButton
+            android:id="@+id/singup_pg"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="8dp"
+            android:visibility="gone"
+            app:buttonText="@string/signup"
+            app:buttonTextSize="20sp"
+            app:progressStyle="progress" />
+    </RelativeLayout>
+
+</RelativeLayout>

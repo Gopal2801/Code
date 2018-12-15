@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/textColorPrimary">
+
+        <ImageView
+            android:id="@+id/im"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/im_te"
+                android:background="@color/textColorPrimary"
+                android:visibility="gone"></View>
+
+            <ImageView
+                android:id="@+id/im_te"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:scaleType="fitXY" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/im_te"
+                android:layout_marginTop="10dp"
+                android:padding="5dp" />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <!-- <View
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:background="@color/black_alph2"></View>-->
+
+
+</RelativeLayout>

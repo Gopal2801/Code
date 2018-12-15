@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bgContent"
+    android:baselineAligned="false"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="110dp"
+        android:layout_height="170dp">
+
+        <ImageView
+            android:id="@+id/company_proifle_IM"
+            android:layout_width="110dp"
+            android:layout_height="170dp"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
+             />
+    </RelativeLayout>
+
+
+    <!-- LEFT TITLE PART -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_weight="3"
+        android:background="@color/mainTextColor"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+
+        <TextView
+            android:id="@+id/title_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="No Of Need"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/noofvacancyTXT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_price"
+            android:layout_centerInParent="true"
+            android:text="...."
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/title_date_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/noofvacancyTXT"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+    <!-- RIGHT TITLE PART -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/bgTitleRight"
+        android:paddingBottom="20dp"
+        android:paddingEnd="20dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="20dp"
+        android:paddingStart="15dp"
+        android:paddingTop="20dp">
+
+        <ImageView
+            android:id="@+id/title_from_to_dots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/from_to_purple"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/job_title_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/title_from_to_dots"
+            android:layout_marginTop="-5dp"
+            android:layout_toEndOf="@+id/title_from_to_dots"
+            android:layout_toRightOf="@+id/title_from_to_dots"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:singleLine="true"
+            android:text="Software (Mobile App)"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/title_from_to_dots_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/job_title_txt"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@+id/title_from_to_dots"
+            android:layout_toRightOf="@+id/title_from_to_dots"
+            android:src="@color/contentDividerLine" />
+
+        <TextView
+            android:id="@+id/job_desc_label_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_from_to_dots_divider"
+            android:layout_toEndOf="@id/title_from_to_dots"
+            android:layout_toRightOf="@id/title_from_to_dots"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:padding="2dp"
+            android:singleLine="true"
+            android:text="@string/jobdescription"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/desp_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/job_desc_label_txt"
+            android:orientation="vertical"
+            android:padding="2dp">
+
+            <TextView
+                android:id="@+id/description_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fadingEdge="horizontal"
+                android:text="    Sample application for testing to general puropse."
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/desp_lay"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/label_project"
+                    android:textColor="@color/textColorPrimary"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/budget_TXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="2k" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/label_req"
+                    android:textColor="@color/textColorPrimary"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/requirement_TXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</LinearLayout>

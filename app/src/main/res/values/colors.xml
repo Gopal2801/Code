@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccentalpha">#40FF4081</color>
+    <color name="colorAccent">#238AFF</color>
+
+    <color name="pink">#FF4081</color>
+    <color name="app_bg">#11426D</color>
+    <color name="white">#ffffff</color>
+    <color name="colorBlackTrans">#a0000000</color>
+    <color name="colorPrimaryTrans">#a0673AB7</color>
+    <color name="colorAccentTrans">#a0009688</color>
+    <color name="colorAccenta">#009688</color>
+    <color name="app_bg_apl">#9211426D</color>
+    <color name="red">#E11A14</color>
+    <color name="blue">#238AFF</color>
+    <color name="black_alph">#20000000</color>
+    <color name="black_alph2">#90000000</color>
+    <color name="app_bga">#903A3D42</color>
+
+    <color name="app_btnsingup">#902B4BC3</color>
+    <color name="app_btnsignin">#90238AFF</color>
+    <color name="bluealpha">#30238AFF</color>
+
+    <color name="textColorPrimary">#212121</color>
+    <color name="textColorSecondary">#757575</color>
+    <color name="grey">#D3D3D3</color>
+    <color name="black">#000000</color>
+    <color name="grey_light">#90D3D3D3</color>
+    <color name="splash_black">#000000</color>
+
+
+    <color name="bgBackSideColor">#f4f0ff</color>
+    <color name="bgTitleLeft">#594691</color>
+    <color name="bgTitleRight">#ffffff</color>
+    <color name="bgContentTop">#594691</color>
+    <color name="bgContent">#ffffff</color>
+    <color name="contentDividerLine">#90e0e0e0</color>
+    <color name="contentBadgeTitle">#a9a9a9</color>
+    <color name="titleBadgeTitle">#adafb1</color>
+    <color name="titleBadgeText">#adafb1</color>
+    <color name="mainTextColor">#343d43</color>
+    <color name="btnRequest">#2BB84C</color>
+
+    <color name="colorStart">#cb5ed9</color>
+    <color name="colorEnd">#8463d4</color>
+    <color name="colorTransparent">#00ffffff</color>
+    <color name="grey_light1">#ffdfdfdf</color>
+    <color name="bg_light_grey">#d4d4d4</color>
+    <color name="bg_light_grey_alpha">#40e0e0e0</color>
+
+</resources>

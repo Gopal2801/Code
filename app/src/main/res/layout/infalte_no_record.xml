@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/header_lay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/alert_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="No Job's found"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/no_data_BTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/alert_txt"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_add"
+            android:tint="@color/white"
+            android:visibility="gone"></android.support.design.widget.FloatingActionButton>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

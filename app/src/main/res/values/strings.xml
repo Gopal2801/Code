@@ -1,0 +1,109 @@
+<resources>
+    <string name="app_name">Profile</string>
+    <string name="label_login">Login</string>
+    <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="mobile_number">Mobile number</string>
+    <string name="skills">Skills</string>
+    <string name="qualification">Qualification</string>
+    <string name="experience">Experience</string>
+    <string name="address">Address</string>
+    <string name="portfolio">Portfolio</string>
+    <string name="signup">Sign Up</string>
+    <string name="save">Save</string>
+    <string name="create">Create</string>
+    <!--   New Filed from 02Oct18-->
+    <string name="nationality">Nationality</string>
+    <string name="birthPlace">Birth place</string>
+    <string name="aadharno">Aadhaar Number</string>
+    <string name="interest">Interest</string>
+    <string name="hobby">Hobby</string>
+    <string name="companyName">Company name</string>
+    <string name="job_type">Job type</string>
+    <string name="deadline">Deadline</string>
+    <string name="job_status">Job Status</string>
+    <string name="job_period">Currently work here</string>
+
+    <!--   New Filed from 02Oct18-->
+
+
+    <string name="jobname">Job Name</string>
+    <string name="jobdesignation">Designation</string>
+    <string name="jobdescription">Description</string>
+    <string name="jobdbud">Budgets</string>
+    <string name="jobreq">Requirement</string>
+    <string name="remarkss">Remarks</string>
+    <string name="noofvacancy">No Of Vacancy</string>
+
+
+    <string name="dob">Dob</string>
+    <string name="email_or_mobile">Email (or) Mobile</string>
+    <string name="label_signin">Sign In</string>
+    <string name="label_ok">Ok</string>
+    <string-array name="items_class">
+        <item>Class 1</item>
+        <item>Class 2</item>
+        <item>Class 3</item>
+        <item>Class 4</item>
+    </string-array>
+
+    <string name="account_balance">Account Balance</string>
+    <string name="balance_currency">$</string>
+    <string name="balance_amount">524.99</string>
+    <string name="label_cancel">Cancel</string>
+    <string name="label_edit_profile">Edit Profile</string>
+    <string name="lable_merge_profile">Merge Profile</string>
+    <string name="label_create_job">Create Job</string>
+    <string name="label_job_list">Job\'s</string>
+    <string name="label_req">Requirement</string>
+    <string name="label_call">CONTACT</string>
+    <string name="lable_medical">Medical Info</string>
+
+    <string name="label_project">Project Budget</string>
+
+
+    <string name="order_id_mock" translatable="false"># 1234–5678</string>
+    <string name="price_mock" translatable="false">$25</string>
+    <string name="requests_count_mock" translatable="false">5</string>
+    <string name="requests_count_badge" translatable="false">REQUESTS</string>
+    <string name="weight_mock" translatable="false">50oz</string>
+    <string name="weight_badge" translatable="false">WEIGHT</string>
+    <string name="pledge_mock" translatable="false">$150</string>
+    <string name="pledge_badge" translatable="false">PLEDGE</string>
+    <string name="sender_badge" translatable="false">SENDER</string>
+    <string name="client_name_mock" translatable="false">Edward Norton</string>
+    <string name="rating_mock" translatable="false">(26)</string>
+    <string name="from_badge" translatable="false">FROM</string>
+    <string name="to_badge" translatable="false">TO</string>
+    <string name="delivery_date_badge" translatable="false">DELIVERY DATE</string>
+    <string name="delivery_time_mock" translatable="false">6:30 pm</string>
+    <string name="delivery_date_mock" translatable="false">May 16, 2016</string>
+    <string name="deadline_badge" translatable="false">REQUEST DEADLINE</string>
+    <string name="deadline_time_mock" translatable="false">24 minutes</string>
+    <string name="request_btn_text" translatable="false">REQUEST</string>
+    <string name="btn_annotation_mock" translatable="false">5 people have sent a request</string>
+    <string name="content_from1_mock">W 90th St</string>
+    <string name="content_from2_mock">New York, NY 10025</string>
+    <string name="content_to1_mock">46th Ave</string>
+    <string name="content_to2_mock">Woodside, NY 11101</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+
+    <!-- Medical History-->
+
+    <string name="eye_power">Eye power</string>
+    <string name="blood_group">Blood Group</string>
+    <string name="weight">Weight (in kgs)</string>
+    <string name="height">Height (in cms)</string>
+    <string name="eye_color">Eye Color</string>
+    <string name="nail_symptom">Nail Symptom</string>
+    <string name="bloodPressure">Blood Pressure</string>
+    <string name="sugar">Sugar</string>
+    <string name="cancer">Cancer</string>
+    <string name="hearing">Hearing</string>
+    <string name="thyroid">Thyroid</string>
+
+
+</resources>

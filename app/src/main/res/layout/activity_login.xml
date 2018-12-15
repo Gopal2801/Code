@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/mainlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/emailEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email_or_mobile"
+                app:met_baseColor="@android:color/white"
+                app:met_floatingLabel="normal" />
+
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/pwdEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:password="false"
+                app:met_baseColor="@android:color/white"
+                app:met_floatingLabel="normal" />
+            >
+        </LinearLayout>
+
+        <com.unstoppable.submitbuttonview.SubmitButton
+            android:id="@+id/login_btn"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/mainlay"
+            android:layout_centerInParent="true"
+            android:layout_margin="8dp"
+            app:buttonText="@string/label_login"
+            app:buttonTextSize="20sp" />
+
+        <com.unstoppable.submitbuttonview.SubmitButton
+            android:id="@+id/login_progress"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/mainlay"
+            android:layout_centerInParent="true"
+            android:layout_margin="8dp"
+            android:visibility="gone"
+            app:buttonText="@string/label_login"
+            app:buttonTextSize="20sp"
+            app:progressStyle="progress" />
+    </RelativeLayout>
+</RelativeLayout>

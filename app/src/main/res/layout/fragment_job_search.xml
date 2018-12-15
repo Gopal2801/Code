@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_light">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/bg_people"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:background="@color/black_alph2"
+            android:visibility="gone"></View>
+
+        <RelativeLayout
+            android:id="@+id/header_lay"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@color/blue">
+
+            <ImageView
+                android:id="@+id/editbackim"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_back"
+                android:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/headerTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/search_hint"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.SearchView
+                style="@style/SearchViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:backgroundTint="@color/white"
+                android:foregroundTint="@color/white"
+                android:visibility="gone"></android.support.v7.widget.SearchView>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header_lay">
+
+            <SearchView
+                android:id="@+id/jobsearchview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:iconifiedByDefault="false"
+                android:queryHint="Search Here" />
+
+            <ListView
+                android:id="@+id/job_search_lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/jobsearchview"></ListView>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

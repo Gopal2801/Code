@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/card_margin"
+        android:elevation="5dp"
+        card_view:cardCornerRadius="@dimen/card_radius">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey_light"
+                    android:padding="10dp"
+                    android:text="Professional Information"
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:id="@+id/editprofessional_im"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="8dp"
+                    android:padding="2dp"
+                    android:src="@drawable/ic_edit_profile" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.3"
+                    android:padding="2dp"
+                    android:text="Qualification"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small" />
+
+                <TextView
+                    android:id="@+id/second_cut_qualification_TXT"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="end"
+                    android:padding="2dp"
+                    android:text="-"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:padding="2dp"
+                    android:text="Skills"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small" />
+
+                <TextView
+                    android:id="@+id/second_cut_skill_TXT"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="end"
+                    android:padding="2dp"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:padding="2dp"
+                    android:text="Experience"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small" />
+
+                <TextView
+                    android:id="@+id/second_cut_experience_TXT"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="end"
+                    android:padding="2dp"
+                    android:text="-"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.3"
+                    android:padding="2dp"
+                    android:text="Portfolio"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small" />
+
+                <TextView
+                    android:id="@+id/second_cut_portfolio_TXT"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="end"
+                    android:padding="2dp"
+                    android:text="-"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>
