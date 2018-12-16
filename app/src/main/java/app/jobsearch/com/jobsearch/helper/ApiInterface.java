@@ -79,7 +79,7 @@ public interface ApiInterface {
                                  @Query("jobName") String aJobName, @Query("jobType") String aJobType, @Query("designation") String aJobDesignation, @Query("description") String aJobDesc,
                                  @Query("budget") String aJobBudget, @Query("isCompleted") String aIsComplete,
                                  @Query("requirement") String aJobRequirement, @Query("noOfVacancy") String aNoOfVacancy,
-                                 @Query("deadLine") String aDeadLine, @Query("mode") String aMode);
+                                 @Query("deadLine") String aDeadLine, @Query("mode") String aMode, @Query("keyword") String aKeyWord);
 
 
     /*http://localhost:1583/api/User/SaveMedicalHistory?userId=1&EyePower=0&BloodGroup=A+ve&Weight=84&

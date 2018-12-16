@@ -794,12 +794,14 @@ public class JSProfileProfessionalEditPage extends JSFragment implements Constan
 
 
         if (myPrefs.getEducationList() != null) {
-
+            myEducationList = myPrefs.getEducationList();
 
         } else {
+
+            myEducationList = new ArrayList<>();
+
         }
 
-        myEducationList = myPrefs.getEducationList();
 
         if (myEducationList != null)
 
@@ -818,7 +820,14 @@ public class JSProfileProfessionalEditPage extends JSFragment implements Constan
 
     private void toLoadExperiencList() {
 
-        myExpList = myPrefs.getExperienceList();
+        if (myPrefs.getExperienceList() != null) {
+            myExpList = myPrefs.getExperienceList();
+
+        } else {
+
+            myExpList = new ArrayList<>();
+
+        }
 
         if (myExpList != null) {
             if (myExpList.size() > 0) {

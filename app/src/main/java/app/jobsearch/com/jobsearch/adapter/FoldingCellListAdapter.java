@@ -157,7 +157,7 @@ public class FoldingCellListAdapter extends ArrayAdapter<JobList_> implements Co
                 R.drawable.ic_action_user, R.drawable.ic_action_user);
 
         JSHelper.loadCompanyImage(myContext, viewHolder.myCompanyProfileIM, IMAGE_URL + item.getCompanyProfile(),
-                R.drawable.ic_launcher, R.drawable.ic_launcher);
+                R.drawable.ic_app_profile, R.drawable.ic_app_profile);
 
 
         if (item.getRequirement() != null) {
@@ -185,7 +185,7 @@ public class FoldingCellListAdapter extends ArrayAdapter<JobList_> implements Co
             viewHolder.myContentDesignationTXT.setText(aDesignSTR);
 
         } else {
-            viewHolder.myContentExperienceTXT.setText("Nill");
+            viewHolder.myContentDesignationTXT.setText("Nill");
 
         }
 
@@ -201,7 +201,7 @@ public class FoldingCellListAdapter extends ArrayAdapter<JobList_> implements Co
             viewHolder.myContentRemarksTXT.setText(item.getRating().getRemarks());
 
         } else {
-            viewHolder.myContentExperienceTXT.setText("Nill");
+            viewHolder.myContentRemarksTXT.setText("Nill");
 
         }
 

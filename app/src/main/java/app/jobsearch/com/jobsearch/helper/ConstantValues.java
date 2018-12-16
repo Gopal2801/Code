@@ -65,7 +65,9 @@ public interface ConstantValues {
 
     public String ALERT_FOR_JOB_DESCP = "Please enter the job description";
 
-    public String ALERT_FOR_JOB_BUDG = "Please enter the job budgets";
+    public String ALERT_FOR_JOB_KEYWORD = "Please enter the job keyword";
+
+    public String ALERT_FOR_JOB_BUDG = "Please choose the job budgets";
 
     public String ALERT_FOR_JOB_REQ = "Please enter the job requirement";
 

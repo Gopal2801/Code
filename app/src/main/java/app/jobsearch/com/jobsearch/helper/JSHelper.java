@@ -141,8 +141,10 @@ public class JSHelper implements ConstantValues {
                         .placeholder(aContext.getResources().getDrawable(aDefaultImage))
                         .into(aImageView);
 
+                aImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
             } else {
+
                 aImageView.setBackgroundResource(aErrorImage);
 
                 aImageView.setColorFilter(aContext.getResources().getColor(R.color.blue));

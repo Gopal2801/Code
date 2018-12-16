@@ -26,7 +26,10 @@ import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListPopupWindow;
 import android.widget.RadioButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,18 +38,23 @@ import com.master.permissionhelper.PermissionHelper;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 import app.jobsearch.com.jobsearch.R;
 import app.jobsearch.com.jobsearch.activity.SampleActivity;
+import app.jobsearch.com.jobsearch.adapter.JSCommonAdapter;
+import app.jobsearch.com.jobsearch.adapter.JSListAdapter;
 import app.jobsearch.com.jobsearch.fragmentmanager.JSFragment;
 import app.jobsearch.com.jobsearch.fragmentmanager.JSFragmentManager;
 import app.jobsearch.com.jobsearch.helper.ApiInterface;
 import app.jobsearch.com.jobsearch.helper.ConstantValues;
 import app.jobsearch.com.jobsearch.helper.JSHelper;
 import app.jobsearch.com.jobsearch.helper.Preference;
+import app.jobsearch.com.jobsearch.model.Common;
 import app.jobsearch.com.jobsearch.model.ProfileData;
+import app.jobsearch.com.jobsearch.model.Qualification;
 import app.jobsearch.com.jobsearch.model.UserInfo;
 import app.jobsearch.com.jobsearch.service.ApiClient;
 import app.jobsearch.com.jobsearch.utils.ProgressDialog;
@@ -62,12 +70,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class JSJobCreateFragment extends JSFragment implements ConstantValues {
+public class JSJobCreateFragment extends JSFragment implements ConstantValues, JSCommonAdapter.ClickListener {
 
     public static final String TAG = "JSJobCreateFragment";
 
     private TextInputEditText myJobNameEDT, myJobDesignationEDT, myJobDescEDT,
-            myJobBudgetsEDT, myJobReqEDT, myNoOfVacancyEDT, myCompanyNameEDT, myDeadLineEDT;
+            myJobBudgetsEDT, myJobReqEDT, myNoOfVacancyEDT, myCompanyNameEDT, myDeadLineEDT, myKeyWordEDT;
 
     private UserInfo myUserInfo;
 
@@ -85,11 +93,11 @@ public class JSJobCreateFragment extends JSFragment implements ConstantValues {
 
     private String myJobNameSTR = "", myJobDesignationSTR = "", myJobDescSTR = "",
             myJobBudgetsSTR = "", myJobReqSTR = "", myNoVacancySTR = "", myCompanyNameSTR = "",
-            myJobTypeSTR = "", myDeadLineSTR = "", myCompanyFileSTR = "";
+            myJobTypeSTR = "", myDeadLineSTR = "", myCompanyFileSTR = "", myKeyWordSTR = "";
 
     private Button myCreateBTN;
 
-    private TextView myHeaderTXT;
+    private TextView myHeaderTXT, myJobLabelTXT;
 
     private ImageView myBackIM, myCompanyProifleIM;
 
@@ -100,6 +108,14 @@ public class JSJobCreateFragment extends JSFragment implements ConstantValues {
     private RadioButton myFullTimeRB, myContractRB;
 
     private int mYear, mMonth, mDay, mHour, mMinute;
+
+    private ListPopupWindow myLPWindow;
+
+    private JSCommonAdapter myAdapter;
+
+    private ArrayList<Common> myCommonList;
+
+    private LinearLayout myJobLAY;
 
     @Override
 
@@ -151,11 +167,20 @@ public class JSJobCreateFragment extends JSFragment implements ConstantValues {
 
         myHeaderTXT = (TextView) aView.findViewById(R.id.headerTxt);
 
+        myJobLabelTXT = (TextView) aView.findViewById(R.id.jobtype_label_TXT);
+
+        myJobLAY = (LinearLayout) aView.findViewById(R.id.jobtype_LAY);
+
+
         myFullTimeRB = (RadioButton) aView.findViewById(R.id.full_time_RB);
 
         myContractRB = (RadioButton) aView.findViewById(R.id.contract_time_RB);
 
         myDeadLineEDT = (TextInputEditText) aView.findViewById(R.id.deadLineEDT);
+
+        myKeyWordEDT = (TextInputEditText) aView.findViewById(R.id.jobkeywordEDT);
+
+        myLPWindow = new ListPopupWindow(myContext);
 
         myJobTypeSTR = "F";
 
@@ -168,6 +193,46 @@ public class JSJobCreateFragment extends JSFragment implements ConstantValues {
         setFocusListener();
 
         clickListener();
+
+        toLoadBudgetList();
+    }
+
+    private void toLoadBudgetList() {
+
+        myCommonList = new ArrayList<>();
+
+        Common aCommon = new Common();
+
+        aCommon.setId("1");
+
+        aCommon.setName("Budget");
+
+        myCommonList.add(aCommon);
+
+
+        Common aCommon1 = new Common();
+
+        aCommon1.setId("2");
+
+        aCommon1.setName("Salary");
+
+        myCommonList.add(aCommon1);
+
+        myAdapter = new JSCommonAdapter(myContext, myCommonList, myLPWindow, QUALI);
+
+        myAdapter.setData(this);
+
+    }
+
+    private void showWindow() {
+
+        myLPWindow.setAdapter(myAdapter);
+
+        myLPWindow.setAnchorView(myJobBudgetsEDT);
+
+        myLPWindow.setModal(true);
+
+        myLPWindow.show();
     }
 
     private void setFocusListener() {
@@ -318,6 +383,17 @@ public class JSJobCreateFragment extends JSFragment implements ConstantValues {
                 showDatePicker();
             }
         });
+
+
+        myJobBudgetsEDT.setFocusableInTouchMode(false);
+        myJobBudgetsEDT.setFocusable(false);
+        myJobBudgetsEDT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showWindow();
+
+            }
+        });
     }
 
     private void showDatePicker() {
@@ -345,6 +421,8 @@ public class JSJobCreateFragment extends JSFragment implements ConstantValues {
         myJobDesignationSTR = getEditTextValue(myJobDesignationEDT);
 
         myJobDescSTR = getEditTextValue(myJobDescEDT);
+
+        myKeyWordSTR = getEditTextValue(myKeyWordEDT);
 
         myJobBudgetsSTR = getEditTextValue(myJobBudgetsEDT);
 
@@ -393,6 +471,9 @@ public class JSJobCreateFragment extends JSFragment implements ConstantValues {
             return false;
         } else if (getEditTextValue(myJobDescEDT).equals("")) {
             JSHelper.showAlertDialog(myContext, ALERT_FOR_JOB_DESCP);
+            return false;
+        } else if (getEditTextValue(myKeyWordEDT).equals("")) {
+            JSHelper.showAlertDialog(myContext, ALERT_FOR_JOB_KEYWORD);
             return false;
         } else if (getEditTextValue(myJobBudgetsEDT).equals("")) {
             JSHelper.showAlertDialog(myContext, ALERT_FOR_JOB_BUDG);
@@ -641,7 +722,7 @@ public class JSJobCreateFragment extends JSFragment implements ConstantValues {
 
 
             call = myAPIInterface.createJob(aBody, "", myPref.getUserID(), myCompanyNameSTR, myJobNameSTR, myJobTypeSTR, myJobDesignationSTR, myJobDescSTR,
-                    myJobBudgetsSTR, "", myJobReqSTR, myNoVacancySTR, myDeadLineSTR, INSERT);
+                    myJobBudgetsSTR, "", myJobReqSTR, myNoVacancySTR, myDeadLineSTR, INSERT, myKeyWordSTR);
 
         } else {
 
@@ -654,7 +735,7 @@ public class JSJobCreateFragment extends JSFragment implements ConstantValues {
                     MultipartBody.Part.createFormData("PImage", "image", requestFile);
 
             call = myAPIInterface.createJob(aBody, "", myPref.getUserID(), myCompanyNameSTR, myJobNameSTR, myJobTypeSTR, myJobDesignationSTR, myJobDescSTR,
-                    myJobBudgetsSTR, "", myJobReqSTR, myNoVacancySTR, myDeadLineSTR, INSERT);
+                    myJobBudgetsSTR, "", myJobReqSTR, myNoVacancySTR, myDeadLineSTR, INSERT, myKeyWordSTR);
 
 
           /*  call = myAPIInterface.createJobWithoutImage("", myPref.getUserID(), myCompanyNameSTR, myJobNameSTR, myJobTypeSTR, myJobDesignationSTR, myJobDescSTR,
@@ -732,4 +813,45 @@ public class JSJobCreateFragment extends JSFragment implements ConstantValues {
         mDay = c.get(Calendar.DAY_OF_MONTH);
     }
 
+    @Override
+    public void setData() {
+
+        if (myAdapter != null) {
+
+            if (!myAdapter.getCommonID().equals("")) {
+
+                String aID = myAdapter.getCommonID();
+
+                String aName = myAdapter.getCommon();
+
+                myJobBudgetsEDT.setText(aName);
+
+
+                switch (aID) {
+
+                    case "1":
+                        myJobLabelTXT.setVisibility(View.GONE);
+                        myJobLAY.setVisibility(View.GONE);
+                        myDeadLineEDT.setVisibility(View.VISIBLE);
+                        myJobTypeSTR = "";
+                        break;
+
+                    case "2":
+                        myDeadLineEDT.setVisibility(View.GONE);
+                        myJobLabelTXT.setVisibility(View.VISIBLE);
+                        myJobLAY.setVisibility(View.VISIBLE);
+                        myJobTypeSTR = "F";
+
+                        break;
+
+                }
+
+            } else {
+
+            }
+
+        }
+
+
+    }
 }

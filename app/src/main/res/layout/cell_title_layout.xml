@@ -16,7 +16,7 @@
             android:layout_height="170dp"
             android:layout_centerInParent="true"
             android:adjustViewBounds="true"
-             />
+            android:src="@drawable/ic_app_profile" />
     </RelativeLayout>
 
 
@@ -56,8 +56,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/noofvacancyTXT"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:textColor="@android:color/white"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -70,19 +70,19 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@color/bgTitleRight"
-        android:paddingBottom="20dp"
-        android:paddingEnd="20dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="20dp"
         android:paddingStart="15dp"
-        android:paddingTop="20dp">
+        android:paddingLeft="15dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp">
 
         <ImageView
             android:id="@+id/title_from_to_dots"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/from_to_purple"
@@ -108,8 +108,8 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_below="@id/job_title_txt"
-            android:layout_marginBottom="2dp"
             android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             android:layout_toEndOf="@+id/title_from_to_dots"
             android:layout_toRightOf="@+id/title_from_to_dots"
             android:src="@color/contentDividerLine" />

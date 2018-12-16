@@ -31,11 +31,12 @@
 
     <string name="jobname">Job Name</string>
     <string name="jobdesignation">Designation</string>
-    <string name="jobdescription">Description</string>
+    <string name="jobdescription">Description about job</string>
     <string name="jobdbud">Budgets</string>
-    <string name="jobreq">Requirement</string>
+    <string name="jobreq">Skill Requirement</string>
     <string name="remarkss">Remarks</string>
     <string name="noofvacancy">No Of Vacancy</string>
+    <string name="keyword">Keyword</string>
 
 
     <string name="dob">Dob</string>
