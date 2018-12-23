@@ -345,7 +345,7 @@ public class JSProfileMergeScreen extends JSFragment implements ConstantValues, 
 
         Call<ProfileData> call = myAPIInterface.signUpService(myPref.getUserID(), myNameSTR, myMobileSTR, "",
                 myEmailSTR, myPwdSTR, myDobSTR,
-                myQualificationSTR, "", myExperienceSTR,
+                myQualificationSTR, mySkillSTR, myExperienceSTR,
                 myPortfolioSTR, myAddressSTR, "false", "false", "",
                 "", "", "", "", "", MERGE, "0");
 
@@ -376,7 +376,7 @@ public class JSProfileMergeScreen extends JSFragment implements ConstantValues, 
 
                             toEmptyEditText();
 
-                            // toDismissDialog();
+                            toDismissDialog();
 
                             //myPref.putUserInfo(aProfile.getUserInfo());
 
@@ -424,11 +424,17 @@ public class JSProfileMergeScreen extends JSFragment implements ConstantValues, 
 
         myMobileNoEDT.setText("");
 
+        myProfileEmailEDT.setText("");
+
+        myProfilePwdEDT.setText("");
+
         myDOBEDT.setText("");
 
-        mySkillEDT.setText("");
+        myQualificationEDT.setText("");
 
         mySkillEDT.setText("");
+
+        myExperienceEDT.setText("");
 
         myPortFolioEDT.setText("");
     }

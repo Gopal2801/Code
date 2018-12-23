@@ -2,6 +2,7 @@ package app.jobsearch.com.jobsearch.helper;
 
 import java.util.ArrayList;
 
+import app.jobsearch.com.jobsearch.model.EventList;
 import app.jobsearch.com.jobsearch.model.JobList;
 import app.jobsearch.com.jobsearch.model.ProfileData;
 import app.jobsearch.com.jobsearch.model.Qualification;
@@ -102,5 +103,15 @@ public interface ApiInterface {
     @GET("User/SaveExperienceDetails?")
     Call<ResponseBody> saveExperienceDetails(@Query("userId") String aID, @Query("json") String aJson);
 
+
+    @POST("Event/CreateEvent?")
+    Call<ResponseBody> addEvent(MultipartBody.Part body, @Query("id") String aID, @Query("name") String myEventNameSTR,
+                                @Query("venue") String myEventVenueSTR, @Query("date") String myEventDateSTR,
+                                @Query("place") String myEventPlaceSTR, @Query("ticketAvailable") String myTicketSTR,
+                                @Query("userId") String s1, @Query("mode") String insert);
+
+
+    @GET("Event/GetEventList?")
+    Call<EventList> getEventList(@Query("userId") String aID);
 }
 

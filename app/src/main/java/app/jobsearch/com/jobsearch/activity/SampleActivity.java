@@ -31,6 +31,7 @@ import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import app.jobsearch.com.jobsearch.R;
@@ -39,6 +40,8 @@ import app.jobsearch.com.jobsearch.adapter.DrawerItem;
 import app.jobsearch.com.jobsearch.adapter.SimpleItem;
 import app.jobsearch.com.jobsearch.adapter.SpaceItem;
 import app.jobsearch.com.jobsearch.fragment.JSDummyPage;
+import app.jobsearch.com.jobsearch.fragment.JSEventListFragment;
+import app.jobsearch.com.jobsearch.fragment.JSEventPageFragment;
 import app.jobsearch.com.jobsearch.fragment.JSJobCreateFragment;
 import app.jobsearch.com.jobsearch.fragment.JSJobListFragment;
 import app.jobsearch.com.jobsearch.fragment.JSJobSearchFragment;
@@ -51,7 +54,10 @@ import app.jobsearch.com.jobsearch.helper.ApiInterface;
 import app.jobsearch.com.jobsearch.helper.ConstantValues;
 import app.jobsearch.com.jobsearch.helper.JSHelper;
 import app.jobsearch.com.jobsearch.helper.Preference;
+import app.jobsearch.com.jobsearch.model.Education;
+import app.jobsearch.com.jobsearch.model.Experience;
 import app.jobsearch.com.jobsearch.model.ProfileData;
+import app.jobsearch.com.jobsearch.model.Schools;
 import app.jobsearch.com.jobsearch.service.ApiClient;
 import app.jobsearch.com.jobsearch.utils.ProgressDialog;
 import id.zelory.compressor.Compressor;
@@ -74,8 +80,9 @@ public class SampleActivity extends AppCompatActivity implements DrawerAdapter.O
     private static final int POS_JOB = 2;
     private static final int POS_SEARCH = 3;
     private static final int POS_MEDICAL = 4;
+    private static final int POS_EVENT = 5;
 
-    private static final int POS_LOGOUT = 6;
+    private static final int POS_LOGOUT = 7;
     private String[] screenTitles;
     private Drawable[] screenIcons;
 
@@ -119,7 +126,8 @@ public class SampleActivity extends AppCompatActivity implements DrawerAdapter.O
                 createItemFor(POS_JOB),
                 createItemFor(POS_SEARCH),
                 createItemFor(POS_MEDICAL),
-                new SpaceItem(30),
+                createItemFor(POS_EVENT),
+                new SpaceItem(20),
                 createItemFor(POS_LOGOUT)));
         adapter.setListener(this);
         RecyclerView list = findViewById(R.id.list);
@@ -190,6 +198,10 @@ public class SampleActivity extends AppCompatActivity implements DrawerAdapter.O
         } else if (position == POS_MEDICAL) {
             myFragmentManager.clearAllFragments();
             myFragmentManager.updateContent(new JSProfileMedicalScreen(), JSProfileMedicalScreen.TAG, null);
+
+        } else if (position == POS_EVENT) {
+            myFragmentManager.clearAllFragments();
+            myFragmentManager.updateContent(new JSEventListFragment(), JSEventListFragment.TAG, null);
 
         } else {
             myFragmentManager.clearAllFragments();
@@ -272,6 +284,10 @@ public class SampleActivity extends AppCompatActivity implements DrawerAdapter.O
     private void callLoginPage() {
 
         myPref.putStatus(false);
+        myPref.putSchoolingList(new ArrayList<Schools>());
+        myPref.putExperienceList(new ArrayList<Experience>());
+        myPref.putEducationList(new ArrayList<Education>());
+        myPref.putResultStatus(true);
         Intent i = new Intent(myContext, MainActivityAlpha.class);
         startActivity(i);
         finish();

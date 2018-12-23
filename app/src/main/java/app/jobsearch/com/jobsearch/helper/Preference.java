@@ -16,6 +16,7 @@ import app.jobsearch.com.jobsearch.model.Experience;
 import app.jobsearch.com.jobsearch.model.MedicalHistory;
 import app.jobsearch.com.jobsearch.model.MedicalInfo;
 import app.jobsearch.com.jobsearch.model.Qualification;
+import app.jobsearch.com.jobsearch.model.Schools;
 import app.jobsearch.com.jobsearch.model.UserInfo;
 
 public class Preference {
@@ -223,5 +224,39 @@ public class Preference {
         }.getType());
 
         return aItems;
+    }
+
+
+    public void putSchoolingList(ArrayList<Schools> aItem) {
+        Gson gson = new Gson();
+        String jsonUsers = gson.toJson(aItem);
+        mySharedEditor.putString("SCHOOLLIST", jsonUsers);
+        mySharedEditor.commit();
+    }
+
+
+    public ArrayList<Schools> getSchoolingList() {
+
+        ArrayList<Schools> aItems;
+
+        Gson aGson = new Gson();
+
+        String aJson = mySharedPreference.getString("SCHOOLLIST", "");
+
+        aItems = aGson.fromJson(aJson, new TypeToken<ArrayList<Schools>>() {
+        }.getType());
+
+        return aItems;
+    }
+
+
+    public Boolean getResultStatus() {
+        return mySharedPreference.getBoolean("RESULT", true);
+    }
+
+    public void putResultStatus(Boolean aId) {
+        mySharedEditor.putBoolean("RESULT", aId);
+        mySharedEditor.commit();
+
     }
 }

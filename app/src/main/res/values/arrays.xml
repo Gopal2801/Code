@@ -7,6 +7,7 @@
         <item>My Jobs</item>
         <item>Search</item>
         <item>Medical</item>
+        <item>Event</item>
         <item />
         <item>Log Out</item>
     </string-array>
@@ -17,6 +18,7 @@
         <item>@drawable/ic_job</item>
         <item>@drawable/ic_search</item>
         <item>@drawable/ic_merge_profile</item>
+        <item>@drawable/ic_event</item>
         <item>0</item>
         <item>@drawable/ic_logout</item>
     </array>

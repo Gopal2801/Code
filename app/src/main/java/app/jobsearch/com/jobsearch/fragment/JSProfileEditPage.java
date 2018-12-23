@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -77,6 +78,7 @@ public class JSProfileEditPage extends JSFragment implements ConstantValues {
 
     private TextView myHeaderTXT;
 
+    private RadioButton myPassRB, myFailRB;
 
     @Override
     public View onCreateView(LayoutInflater aInflater, ViewGroup aContainer, Bundle savedInstanceState) {

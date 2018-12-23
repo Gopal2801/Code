@@ -10,4 +10,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="card_margin">5dp</dimen>
     <dimen name="card_radius">5dp</dimen>
+    <dimen name="dimen_20">20dp</dimen>
+    <dimen name="dimen_10">10dp</dimen>
 </resources>

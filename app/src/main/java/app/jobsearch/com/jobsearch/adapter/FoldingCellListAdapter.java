@@ -180,7 +180,9 @@ public class FoldingCellListAdapter extends ArrayAdapter<JobList_> implements Co
             viewHolder.myContentExperienceTXT.setText("Nill");
 
         }
+
         String aDesignSTR = item.getDesignation();
+
         if (!aDesignSTR.equals("") && aDesignSTR != null) {
             viewHolder.myContentDesignationTXT.setText(aDesignSTR);
 

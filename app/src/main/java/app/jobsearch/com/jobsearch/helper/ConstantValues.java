@@ -107,5 +107,9 @@ public interface ConstantValues {
 
     public String ALERT_FOR_SUCCESS = "Success";
 
+    public String COMMON_POSITIVE = "1";
+
+    public String COMMON_NEGATIVE = "0";
+
 
 }

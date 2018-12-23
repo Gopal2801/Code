@@ -39,6 +39,7 @@ import app.jobsearch.com.jobsearch.activity.SampleActivity;
 import app.jobsearch.com.jobsearch.adapter.JSListAdapter;
 import app.jobsearch.com.jobsearch.adapter.SampleAdapter;
 import app.jobsearch.com.jobsearch.adapter.SampleExpAdapter;
+import app.jobsearch.com.jobsearch.adapter.SchoolAdapter;
 import app.jobsearch.com.jobsearch.fragmentmanager.JSFragment;
 import app.jobsearch.com.jobsearch.fragmentmanager.JSFragmentManager;
 import app.jobsearch.com.jobsearch.helper.ApiInterface;
@@ -49,6 +50,7 @@ import app.jobsearch.com.jobsearch.model.Education;
 import app.jobsearch.com.jobsearch.model.Experience;
 import app.jobsearch.com.jobsearch.model.ProfileData;
 import app.jobsearch.com.jobsearch.model.Qualification;
+import app.jobsearch.com.jobsearch.model.Schools;
 import app.jobsearch.com.jobsearch.model.UserInfo;
 import app.jobsearch.com.jobsearch.service.ApiClient;
 import app.jobsearch.com.jobsearch.utils.ProgressDialog;
@@ -98,9 +100,9 @@ public class JSProfileProfessionalEditPage extends JSFragment implements Constan
 
     private String myJobTypeSTR = "", myJobValueSTR = "";
 
-    private TextView myEductionTXT, myExperienceTXT;
+    private TextView myEductionTXT, myExperienceTXT, myAddSchlTXT;
 
-    private RecyclerView myEducationRC, myExperienceRC;
+    private RecyclerView myEducationRC, myExperienceRC, mySchoolRC;
 
     private ArrayList<Education> myEducationList;
 
@@ -110,7 +112,12 @@ public class JSProfileProfessionalEditPage extends JSFragment implements Constan
 
     private SampleExpAdapter myExpAdpter;
 
+    private SchoolAdapter mySchoolAdapter;
+
     private int mYear, mMonth, mDay, mHour, mMinute;
+
+    private ArrayList<Schools> mySchoolList;
+
 
     @Override
     public View onCreateView(LayoutInflater aInflater, ViewGroup aContainer, Bundle savedInstanceState) {
@@ -148,6 +155,8 @@ public class JSProfileProfessionalEditPage extends JSFragment implements Constan
 
         myExpList = new ArrayList<>();
 
+        mySchoolList = new ArrayList<>();
+
         myQualification = myPrefs.getQualificaiton();
 
         mySkillEDT = (TextInputEditText) aView.findViewById(R.id.profileSkillEDT);
@@ -170,11 +179,16 @@ public class JSProfileProfessionalEditPage extends JSFragment implements Constan
 
         myEductionTXT = (TextView) aView.findViewById(R.id.add_education_TXT);
 
+        myAddSchlTXT = (TextView) aView.findViewById(R.id.add_schl_TXT);
+
+
         myExperienceTXT = (TextView) aView.findViewById(R.id.add_experience_TXT);
 
         myEducationRC = (RecyclerView) aView.findViewById(R.id.education_RC);
 
         myExperienceRC = (RecyclerView) aView.findViewById(R.id.experience_RC);
+
+        mySchoolRC = (RecyclerView) aView.findViewById(R.id.school_details_RC);
 
         myJobTypeSTR = "0";
 
@@ -312,7 +326,12 @@ public class JSProfileProfessionalEditPage extends JSFragment implements Constan
             public void onClick(View v) {
 
                 if (JSHelper.CheckInternet(myContext)) {
-                    showExperienceDialog();
+
+                    if (myPrefs.getResultStatus()) {
+
+                        showExperienceDialog();
+
+                    }
                 } else {
                     JSHelper.showAlertDialog(myContext, ALERT_NETWORK_NOT_AVAILABLE);
 
@@ -390,7 +409,18 @@ public class JSProfileProfessionalEditPage extends JSFragment implements Constan
                 }
             }
         });
+        myAddSchlTXT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (JSHelper.CheckInternet(myContext)) {
+                    showSchoolDialog();
 
+                } else {
+                    JSHelper.showAlertDialog(myContext, ALERT_NETWORK_NOT_AVAILABLE);
+
+                }
+            }
+        });
     }
 
     private String getEditTextValue(TextInputEditText aEditText) {
@@ -565,6 +595,8 @@ public class JSProfileProfessionalEditPage extends JSFragment implements Constan
         final EditText aCollegeEDT = (EditText) aDialog.findViewById(R.id.clg_EDT);
         final EditText aFieldEDT = (EditText) aDialog.findViewById(R.id.field_EDT);
         final EditText aCityEDT = (EditText) aDialog.findViewById(R.id.city_EDT);
+        final EditText aCGPAEDT = (EditText) aDialog.findViewById(R.id.CGPA_EDT);
+
         final TextView aFromMonthEDT = (TextView) aDialog.findViewById(R.id.from_mnt_EDT);
         final TextView aToMonthEDT = (TextView) aDialog.findViewById(R.id.to_year_EDT);
         TextView aCancelTXT = (TextView) aDialog.findViewById(R.id.cancel_TXT);
@@ -618,9 +650,16 @@ public class JSProfileProfessionalEditPage extends JSFragment implements Constan
                 if (!getTextViewValue(aToMonthEDT).equals("")) {
                     aEdu.setTo(getTextViewValue(aToMonthEDT));
                 }
+                if (!getTextViewValue(aCGPAEDT).equals("")) {
+                    aEdu.setMarks(getTextViewValue(aCGPAEDT));
+                }
+                aEdu.setIsSchool(COMMON_NEGATIVE);
+
+                aEdu.setIsPassed(COMMON_POSITIVE);
 
                 aEducationList.add(aEdu);
 
+                
                 myEducationList.addAll(aEducationList);
 
                 myPrefs.putEducationList(myEducationList);
@@ -630,6 +669,161 @@ public class JSProfileProfessionalEditPage extends JSFragment implements Constan
                 aDialog.dismiss();
 
                 convertJSONEducation();
+            }
+        });
+
+        aDegreeEDT.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() > 0) {
+                    aSaveTXT.setVisibility(View.VISIBLE);
+                } else {
+                    aSaveTXT.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        aDialog.show();
+    }
+
+
+    private void showSchoolDialog() {
+
+        final String[] aResult = {COMMON_POSITIVE};
+
+        final ArrayList<Schools> aEducationList = new ArrayList<>();
+
+        // custom dialog
+        final Dialog aDialog = new Dialog(myContext);
+        aDialog.setContentView(R.layout.inflate_school_details_lay);
+        //  aDialog.setTitle("Title...");
+        aDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT);
+        // set the custom dialog components - text, image and button
+        final EditText aDegreeEDT = (EditText) aDialog.findViewById(R.id.degree_EDT);
+        final EditText aCollegeEDT = (EditText) aDialog.findViewById(R.id.clg_EDT);
+        final EditText aFieldEDT = (EditText) aDialog.findViewById(R.id.field_EDT);
+        final EditText aCityEDT = (EditText) aDialog.findViewById(R.id.city_EDT);
+        final EditText aMarkEDT = (EditText) aDialog.findViewById(R.id.mark_EDT);
+
+        final TextView aFromMonthEDT = (TextView) aDialog.findViewById(R.id.from_mnt_EDT);
+        final TextView aToMonthEDT = (TextView) aDialog.findViewById(R.id.to_year_EDT);
+        TextView aCancelTXT = (TextView) aDialog.findViewById(R.id.cancel_TXT);
+        final TextView aSaveTXT = (TextView) aDialog.findViewById(R.id.save_TXT);
+
+        final RadioButton aPassRDB = (RadioButton) aDialog.findViewById(R.id.pass_RB);
+        final RadioButton aFailRDB = (RadioButton) aDialog.findViewById(R.id.fail_RB);
+
+
+        aFromMonthEDT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                JSHelper.hideSoftKeyboard(myContext, aFromMonthEDT);
+                showDatePicker(aFromMonthEDT);
+            }
+        });
+
+        aToMonthEDT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                JSHelper.hideSoftKeyboard(myContext, aFromMonthEDT);
+                showDatePicker(aToMonthEDT);
+            }
+        });
+
+        aCancelTXT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                aDialog.dismiss();
+
+            }
+        });
+
+        aPassRDB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if (isChecked) {
+                    aResult[0] = COMMON_POSITIVE;
+
+                    myPrefs.putResultStatus(true);
+
+                    myEductionTXT.setEnabled(true);
+                }
+
+
+            }
+        });
+
+
+        aFailRDB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if (isChecked) {
+
+                    aResult[0] = COMMON_NEGATIVE;
+
+                    myPrefs.putResultStatus(false);
+
+                    myEductionTXT.setEnabled(false);
+
+                }
+            }
+        });
+
+        aSaveTXT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Schools aEdu = new Schools();
+
+                if (!getEditTextValueEDT(aDegreeEDT).equals("")) {
+                    aEdu.setDegree(getEditTextValueEDT(aDegreeEDT));
+                }
+                if (!getEditTextValueEDT(aCollegeEDT).equals("")) {
+                    aEdu.setCollege(getEditTextValueEDT(aCollegeEDT));
+                }
+                if (!getEditTextValueEDT(aFieldEDT).equals("")) {
+                    aEdu.setDepartment(getEditTextValueEDT(aFieldEDT));
+                }
+                if (!getEditTextValueEDT(aCityEDT).equals("")) {
+                    aEdu.setCity(getEditTextValueEDT(aCityEDT));
+                }
+                if (!getTextViewValue(aFromMonthEDT).equals("")) {
+                    aEdu.setFrom(getTextViewValue(aFromMonthEDT));
+                }
+                if (!getTextViewValue(aToMonthEDT).equals("")) {
+                    aEdu.setTo(getTextViewValue(aToMonthEDT));
+                }
+                if (!getTextViewValue(aMarkEDT).equals("")) {
+                    aEdu.setMarks(getTextViewValue(aMarkEDT));
+                }
+
+                aEdu.setIsPassed(aResult[0]);
+
+                aEdu.setIsSchool(COMMON_POSITIVE);
+
+                aEducationList.add(aEdu);
+
+                mySchoolList.addAll(aEducationList);
+
+                myPrefs.putSchoolingList(mySchoolList);
+
+                toLoadList();
+
+                aDialog.dismiss();
+
+                convertJSONSchoolEducation();
             }
         });
 
@@ -792,6 +986,34 @@ public class JSProfileProfessionalEditPage extends JSFragment implements Constan
 
     private void toLoadList() {
 
+        //FOR SCHOOLING
+
+        if (myPrefs.getSchoolingList() != null) {
+
+            mySchoolList = myPrefs.getSchoolingList();
+
+        } else {
+
+            mySchoolList = new ArrayList<>();
+
+        }
+
+
+        if (mySchoolList != null)
+
+        {
+            if (mySchoolList.size() > 0) {
+                mySchoolAdapter = new SchoolAdapter(myContext, mySchoolList);
+                mySchoolRC.setAdapter(mySchoolAdapter);
+                LinearLayoutManager llm = new LinearLayoutManager(myContext);
+                llm.setOrientation(LinearLayoutManager.VERTICAL);
+                mySchoolRC.setLayoutManager(llm);
+
+            }
+        }
+
+
+        //FOR DEGREE
 
         if (myPrefs.getEducationList() != null) {
             myEducationList = myPrefs.getEducationList();
@@ -842,6 +1064,98 @@ public class JSProfileProfessionalEditPage extends JSFragment implements Constan
 
     }
 
+    private void convertJSONSchoolEducation() {
+
+        try {
+
+            JSONObject aMainJsonObj = new JSONObject();
+
+            JSONArray aJsonMainArray = new JSONArray();
+
+            ArrayList<Schools> aSchoolList = new ArrayList<>();
+
+            if (myPrefs.getEducationList() != null) {
+
+                ArrayList<Education> aList = myPrefs.getEducationList();
+
+                if (aList.size() > 0) {
+
+                    for (int k = 0; k < aList.size(); k++) {
+
+                        Schools aSchool = new Schools();
+
+                        Education aEdu = aList.get(k);
+
+                        aSchool.setDegree(aEdu.getDegree());
+
+                        aSchool.setCollege(aEdu.getCollege());
+
+                        aSchool.setDepartment(aEdu.getDepartment());
+
+                        aSchool.setCity(aEdu.getCity());
+
+                        aSchool.setFrom(aEdu.getFrom());
+
+                        aSchool.setTo(aEdu.getTo());
+
+                        aSchool.setMarks(aEdu.getMarks());
+
+                        aSchool.setIsPassed(aEdu.getIsPassed());
+
+                        aSchool.setIsSchool(aEdu.getIsSchool());
+
+                        aSchoolList.add(aSchool);
+                    }
+
+                    mySchoolList.addAll(aSchoolList);
+                }
+
+            }
+
+
+            if (mySchoolList.size() > 0) {
+
+                for (int k = 0; k < mySchoolList.size(); k++) {
+
+                    JSONObject aJsonObj = new JSONObject();
+
+                    Schools aEdu = mySchoolList.get(k);
+
+                    aJsonObj.put("Degree", aEdu.getDegree());
+
+                    aJsonObj.put("College", aEdu.getCollege());
+
+                    aJsonObj.put("Department", aEdu.getDepartment());
+
+                    aJsonObj.put("From", aEdu.getFrom());
+
+                    aJsonObj.put("City", aEdu.getCity());
+
+                    aJsonObj.put("To", aEdu.getTo());
+
+                    aJsonObj.put("Marks", aEdu.getMarks());
+
+                    aJsonObj.put("IsSchool", aEdu.getIsSchool());
+
+                    aJsonObj.put("IsPassed", aEdu.getIsPassed());
+
+                    aJsonMainArray.put(aJsonObj);
+                }
+
+
+                aMainJsonObj.put("EDUCATION", aJsonMainArray);
+
+                Log.e("VALUEEDC", aMainJsonObj.toString());
+            }
+
+            saveEducationExperience("EDU", aMainJsonObj.toString());
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     private void convertJSONEducation() {
 
         try {
@@ -849,6 +1163,48 @@ public class JSProfileProfessionalEditPage extends JSFragment implements Constan
             JSONObject aMainJsonObj = new JSONObject();
 
             JSONArray aJsonMainArray = new JSONArray();
+
+
+            ArrayList<Education> aEducationList = new ArrayList<>();
+
+            if (myPrefs.getSchoolingList() != null) {
+
+                ArrayList<Schools> aList = myPrefs.getSchoolingList();
+
+                if (aList.size() > 0) {
+
+                    for (int k = 0; k < aList.size(); k++) {
+
+                        Education aSchool = new Education();
+
+                        Schools aEdu = aList.get(k);
+
+                        aSchool.setDegree(aEdu.getDegree());
+
+                        aSchool.setCollege(aEdu.getCollege());
+
+                        aSchool.setDepartment(aEdu.getDepartment());
+
+                        aSchool.setCity(aEdu.getCity());
+
+                        aSchool.setFrom(aEdu.getFrom());
+
+                        aSchool.setTo(aEdu.getTo());
+
+                        aSchool.setMarks(aEdu.getMarks());
+
+                        aSchool.setIsPassed(aEdu.getIsPassed());
+
+                        aSchool.setIsSchool(aEdu.getIsSchool());
+
+                        aEducationList.add(aSchool);
+                    }
+
+                    myEducationList.addAll(aEducationList);
+                }
+
+            }
+
 
             if (myEducationList.size() > 0) {
 
@@ -869,6 +1225,12 @@ public class JSProfileProfessionalEditPage extends JSFragment implements Constan
                     aJsonObj.put("City", aEdu.getCity());
 
                     aJsonObj.put("To", aEdu.getTo());
+
+                    aJsonObj.put("Marks", aEdu.getMarks());
+
+                    aJsonObj.put("IsSchool", aEdu.getIsSchool());
+
+                    aJsonObj.put("IsPassed", aEdu.getIsPassed());
 
                     aJsonMainArray.put(aJsonObj);
                 }

@@ -77,9 +77,11 @@ public class JSDummyPage extends JSFragment implements ConstantValues {
 
     private CardView myCardFistView;
 
-    private ApiInterface myAPIInterface;
 
     private ArrayList<JobList_> myCurrentJobList;
+
+    private ApiInterface myAPIInterface;
+
 
     private ProgressDialog myDialog;
 
@@ -119,6 +121,7 @@ public class JSDummyPage extends JSFragment implements ConstantValues {
         View aView = null;
 
         try {
+
             myContext = getActivity();
 
             // Inflate the layout for this fragment
@@ -126,6 +129,7 @@ public class JSDummyPage extends JSFragment implements ConstantValues {
                     aContainer, false);
 
             classInitialization(aView);
+
         } catch (Throwable e) {
             e.printStackTrace();
         }

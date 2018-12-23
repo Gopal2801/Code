@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:background="@color/blue"
         android:padding="10dp"
-        android:text="Education"
+        android:text="School"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold" />
@@ -38,7 +38,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
-                    android:text="Degree"
+                    android:text="Board"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:padding="2dp"
-                    android:text="College"
+                    android:text="School Name"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:padding="2dp"
-                    android:text="Department"
+                    android:text="Stream"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -93,7 +93,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/border_edt"
-                    android:hint="Department"
+                    android:hint="Stream"
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:maxLines="1"
@@ -107,16 +107,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:padding="2dp"
-                    android:text="CGPA/Percentage"
+                    android:text="Mark"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/CGPA_EDT"
+                    android:id="@+id/mark_EDT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/border_edt"
-                    android:hint="CGPA/Percentage"
+                    android:hint="Mark"
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:maxLines="1"
@@ -176,7 +176,6 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:background="@drawable/border_edt"
-
                             android:hint="From"
                             android:padding="10dp"
                             android:textColor="#000000"
@@ -205,6 +204,47 @@
                             android:textColorHint="#D3D3D3"
                             android:textSize="16sp" />
                     </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Result"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+
+                        <RadioButton
+                            android:id="@+id/pass_RB"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Pass"
+                            android:textColor="@color/black" />
+
+                        <RadioButton
+                            android:id="@+id/fail_RB"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Fail"
+                            android:textColor="@color/black" />
+
+
+                    </RadioGroup>
 
                 </LinearLayout>
 

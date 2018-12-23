@@ -94,6 +94,18 @@ public class UserInfo {
     @Expose
     private ArrayList<Experience> experience = null;
 
+    public ArrayList<Schools> getSchools() {
+        return Schools;
+    }
+
+    public void setSchools(ArrayList<Schools> schools) {
+        Schools = schools;
+    }
+
+    @SerializedName("Schools")
+    @Expose
+    private ArrayList<Schools> Schools = null;
+
     public Integer getId() {
         return id;
     }

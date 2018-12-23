@@ -38,6 +38,25 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/add_schl_TXT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/blue"
+                        android:drawableRight="@drawable/ic_add_circle"
+                        android:drawableTint="@color/white"
+                        android:padding="5dp"
+                        android:text="Add School"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/school_details_RC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:scrollbars="vertical" />
+
+                    <TextView
                         android:id="@+id/add_education_TXT"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -53,7 +72,7 @@
                         android:id="@+id/education_RC"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
+                        android:padding="5dp"
                         android:scrollbars="vertical" />
 
                     <TextView
@@ -73,7 +92,7 @@
                         android:id="@+id/experience_RC"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
+                        android:padding="5dp"
                         android:scrollbars="vertical" />
 
                 </LinearLayout>
@@ -210,8 +229,8 @@
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="15dp"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/selectore_sigup"
             android:text="@string/save"
             android:textAllCaps="false"

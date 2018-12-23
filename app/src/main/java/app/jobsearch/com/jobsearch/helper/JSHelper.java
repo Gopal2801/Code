@@ -3,6 +3,8 @@ package app.jobsearch.com.jobsearch.helper;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -12,9 +14,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import app.jobsearch.com.jobsearch.R;
 import app.jobsearch.com.jobsearch.utils.NetworkUtil;
@@ -157,6 +165,32 @@ public class JSHelper implements ConstantValues {
 
     }
 
+    public static void loadCompanyImage(Context aContext, String aImageUrlStr,
+                                        final RoundedImageView aImageView) {
+        try {
+
+            if (aImageUrlStr.length() > 0) {
+                Log.i("IMAGE URL", aImageUrlStr);
+                Picasso.with(aContext)
+                        .load(aImageUrlStr.replace(" ", "%20"))
+                        .into(aImageView);
+
+                aImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+            } else {
+
+                aImageView.setBackgroundResource(R.drawable.bg_round_corner_light_gery);
+
+                //  aImageView.setColorFilter(aContext.getResources().getColor(R.color.blue));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
     public static String stringIsNotNull(String aValue) {
 
         String aResult;
@@ -205,5 +239,25 @@ public class JSHelper implements ConstantValues {
                 .getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
+    }
+
+    public static String getCurrentDate() {
+        String aCurrentDate = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault()).format(new Date());
+
+        return aCurrentDate;
+    }
+
+    public static Bitmap getBitMap(File aFilePath) {
+
+        Bitmap aBitmap = null;
+
+        if (aFilePath.exists()) {
+
+            aBitmap = BitmapFactory.decodeFile(aFilePath.getAbsolutePath());
+
+
+        }
+
+        return aBitmap;
     }
 }

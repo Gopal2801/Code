@@ -566,6 +566,16 @@ public class MainActivityAlpha extends AppCompatActivity implements View.OnClick
                             }
                         }
 
+
+                        if (aProfile.getUserInfo().getSchools() != null) {
+
+                            if (aProfile.getUserInfo().getSchools().size() > 0) {
+
+                                myPrefs.putSchoolingList(aProfile.getUserInfo().getSchools());
+                            }
+
+                        }
+
                         if (aProfile.getUserInfo().getProfileImage() != null) {
 
                             String aImage = aProfile.getUserInfo().getProfileImage();

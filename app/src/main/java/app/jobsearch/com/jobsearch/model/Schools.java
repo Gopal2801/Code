@@ -4,7 +4,7 @@ package app.jobsearch.com.jobsearch.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Education {
+public class Schools {
 
     @SerializedName("Degree")
     @Expose
@@ -24,7 +24,6 @@ public class Education {
     @SerializedName("To")
     @Expose
     private String to = "";
-
 
     @SerializedName("Marks")
     @Expose
